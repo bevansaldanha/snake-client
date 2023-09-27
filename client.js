@@ -11,8 +11,9 @@ const connect = function () {
     console.log('Successfully connected to game server');
     conn.write("Name: MNU")
   });
-
-
+  
+  
+  
   conn.on("data", (data) => {
     console.log(data);
   });

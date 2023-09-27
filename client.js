@@ -5,13 +5,18 @@ const connect = function () {
     port: "50541",
   });
 
-  // interpret incoming data as text
   conn.setEncoding("utf8");
+
+  conn.on("connect", () => {
+    console.log('Successfully connected to game server');
+    conn.write("Name: MNU")
+  });
+
 
   conn.on("data", (data) => {
     console.log(data);
-  })
-
+  });
+  
 
   return conn;
 };

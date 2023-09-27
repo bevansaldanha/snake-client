@@ -1,5 +1,5 @@
 let connection;
-let curInterval;  
+let curInterval;
 const setupInput = function(conn) {
   const stdin = process.stdin;
   stdin.setRawMode(true);
@@ -7,32 +7,32 @@ const setupInput = function(conn) {
   stdin.resume();
   stdin.on("data", handleUserInput);
   connection = conn;
-  
+
   return stdin;
 };
 
-const handleUserInput = function (key) {
+const handleUserInput = function(key) {
   if (key === '\u0003') {
     process.exit();
   }
 
   if (key === 'w') {
     clearInterval(curInterval);
-    curInterval = setInterval(() => connection.write("Move: up"), 10) 
+    curInterval = setInterval(() => connection.write("Move: up"), 10);
   }
   if (key === 'a') {
     clearInterval(curInterval);
-    curInterval = setInterval(() => connection.write("Move: left"), 10) 
+    curInterval = setInterval(() => connection.write("Move: left"), 10);
   }
 
   if (key === 's') {
     clearInterval(curInterval);
-    curInterval = setInterval(() => connection.write("Move: down"), 10)  
+    curInterval = setInterval(() => connection.write("Move: down"), 10);
   }
 
   if (key === 'd') {
     clearInterval(curInterval);
-    curInterval = setInterval(() => connection.write("Move: right"), 10) 
+    curInterval = setInterval(() => connection.write("Move: right"), 10);
   }
 };
 module.exports = setupInput;

@@ -1,5 +1,6 @@
 let connection;
 let curInterval;
+let chatTime;
 const setupInput = function(conn) {
   const stdin = process.stdin;
   stdin.setRawMode(true);
@@ -33,6 +34,10 @@ const handleUserInput = function(key) {
   if (key === 'd') {
     clearInterval(curInterval);
     curInterval = setInterval(() => connection.write("Move: right"), 10);
+  }
+
+  if (key === 't') {
+    connection.write("Say: hs")
   }
 };
 module.exports = setupInput;
